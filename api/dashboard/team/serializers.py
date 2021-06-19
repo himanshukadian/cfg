@@ -9,7 +9,7 @@ class TeamSerializer(serializers.ModelSerializer):
     """Serializer To Show User Profile In User Dashboard"""
 
     contact_no = serializers.CharField(
-        source='team.contact', allow_blank=True, allow_null=True)
+        source='team.contact_no', allow_blank=True, allow_null=True)
 
     class Meta:
         model = User
@@ -26,7 +26,7 @@ class TeamSerializer(serializers.ModelSerializer):
 
     def update_or_create_profile(self, user, profile_data):
         """This always creates a Profile if the User is missing one"""
-        CompanyAdmin.objects.update_or_create(user=user, defaults=profile_data)
+        Team.objects.update_or_create(user=user, defaults=profile_data)
 
 
 

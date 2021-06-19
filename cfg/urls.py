@@ -42,6 +42,6 @@ urlpatterns = [
             name='account_confirm_email'),
     path('dashboard/', include('api.dashboard.urls')),
     path('api/', include('api.urls')),
-    path('docs/', include_docs_urls(title='BugClaim API Documentation')),
+    path('docs/', include_docs_urls(title='CFG API Documentation')),
     path('register/', include('api.registration.urls')),
 ]

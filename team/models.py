@@ -6,7 +6,7 @@ User = settings.AUTH_USER_MODEL
 
 class Team(models.Model):
     user = models.OneToOneField(
-        User, on_delete=models.CASCADE, related_name='rootadmin')
+        User, on_delete=models.CASCADE, related_name='team')
     contact_no = models.CharField(max_length=20, blank=True, default="")
 
     def __str__(self):
@@ -25,7 +25,7 @@ class Team(models.Model):
 
 
 class TeamMember(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='team_member')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='teammember')
     team = models.ForeignKey(Team, related_name="team", on_delete=models.CASCADE,null=True)
     name = models.CharField(max_length=20, blank=True, default="")
     school = models.CharField(max_length=20, blank=True, default="")
