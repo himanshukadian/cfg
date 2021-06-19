@@ -39,18 +39,18 @@ class TeamRegisterView(RegisterView):
         response.data.update(custom_data)
         return response
 
-#
-#
-# class MentorRegisterView(RegisterView):
-#
-#     def create(self, request, *args, **kwargs):
-#         print(self.request.user)
-#         mutable = request.data._mutable
-#         request.data._mutable = True
-#         d = {'userType': '2'}
-#         request.data.update(d)
-#         request.data._mutable = mutable
-#         response = super().create(request, *args, **kwargs)
-#         custom_data = {"message": "some message", "status": "ok"}
-#         response.data.update(custom_data)
-#         return response
+
+
+class MentorRegisterView(RegisterView):
+
+    def create(self, request, *args, **kwargs):
+        print(self.request.user)
+        mutable = request.data._mutable
+        request.data._mutable = True
+        d = {'userType': '2'}
+        request.data.update(d)
+        request.data._mutable = mutable
+        response = super().create(request, *args, **kwargs)
+        custom_data = {"message": "some message", "status": "ok"}
+        response.data.update(custom_data)
+        return response

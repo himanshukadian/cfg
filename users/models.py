@@ -6,6 +6,7 @@ from django.dispatch import receiver
 from django.http import request
 
 from cfg import settings
+from mentor.models import Mentor
 
 from team.models import *
 
@@ -57,9 +58,9 @@ def create_profile(sender, instance, created, *args, **kwargs):
             team = Team.objects.filter(user=request.user.id)[0]
             team_member.team = team
             team_member.save()
-        # elif instance.user_type == '2':
-        #     mentor = Mentor(user=instance)
-        #     researcher.save()
+        elif instance.user_type == '2':
+            mentor = Mentor(user=instance)
+            mentor.save()
 
 
 def add_user_to_group(sender, instance: User, created: bool, **kwargs):

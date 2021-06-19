@@ -3,7 +3,7 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from cfg.permissions import UserIsTeamOrReadOnly, UserIsTeamMemberOrReadOnly
+from cfg.permissions import *
 from api.dashboard.team.serializers import TeamSerializer, TeamMemberSerializer
 from django.contrib.auth import get_user_model
 

@@ -50,6 +50,11 @@ class UserIsTeamMemberOrReadOnly(permissions.BasePermission):
             return True
         return request.user.groups.filter(name='1').exists()
 
+
+class UserIsTeamMember(permissions.BasePermission):
+    def has_permission(self, request, view):
+        return request.user.groups.filter(name='1').exists()
+
 class IsTeam(permissions.BasePermission):
     def has_permission(self, request, view):
         print("hellopem")
